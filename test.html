@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вероника Николаевна Ковальчук | Репетитор</title>
+    <style>
+        /* Сброс базовых отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FFE8F5;
+            min-height: 250vh; /* увеличиваем высоту, чтобы было место для скролла */
+            display: flex;
+            align-items: flex-start; /* меняем на flex-start, чтобы контент был сверху */
+            justify-content: center;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .hero {
+            text-align: center;
+            max-width: 90%;
+            width: 800px;
+            background-color: transparent;
+            padding: 1.2rem;
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        /* ФИО — всегда видимо */
+        .fio {
+            font-size: clamp(1.6rem, 7vw, 3.4rem);
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            color: #2d1b4e;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1.8rem;
+            line-height: 1.25;
+            word-break: break-word;
+        }
+
+        /* Стиль для фото */
+        .photo-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 60%; /* делает круглым */
+            object-fit: cover; /* красиво обрезает фото */
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 20px rgba(45, 27, 78, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .photo:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 30px rgba(45, 27, 78, 0.3);
+            }
+
+        /* Для мобильных */
+        @media (max-width: 550px) {
+            .photo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Общий стиль для всех окошек */
+        .box-wrapper {
+            display: inline-block;
+            border: 3px solid #ffffff;
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+            /* Анимация появления */
+            opacity: 0;
+            transform: translateY(80px) scale(0.8);
+            transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-bottom: 1.5rem;
+        }
+
+            /* Когда окошко становится видимым */
+            .box-wrapper.show {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            /* Задержка для второго окошка */
+            .box-wrapper.delay {
+                transition-delay: 0.3s; /* появится через 0.3 секунды после первого */
+            }
+
+        .box-text {
+            font-size: clamp(1.2rem, 5vw, 1.9rem);
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
+            white-space: nowrap;
+        }
+
+        /* Стиль для второго окошка - с анимацией при наведении */
+        /* Стиль для второго окошка */
+        #box2 {
+            display: block;
+            width: 100%;
+            border-color: #6b6b7a;
+            background-color: rgba(184, 224, 217, 0.1);
+            transition: all 0.3s ease;
+            padding: 1.5rem 2.5rem;
+            border-radius: 40px;
+        }
+
+            #box2:hover {
+                background-color: rgba(184, 224, 217, 0.3);
+                transform: scale(1.01);
+                box-shadow: 0 4px 20px rgba(184, 224, 217, 0.4);
+            }
+
+            #box2 .box-text {
+                color: #6b6b7a;
+                white-space: normal;
+                word-wrap: break-word;
+                text-align: left;
+                line-height: 1.8;
+                font-size: clamp(1rem, 2.5vw, 1.4rem);
+            }
+
+                #box2 .box-text p {
+                    margin: 0.6rem 0;
+                    padding-left: 25px;
+                    position: relative;
+                }
+
+                    #box2 .box-text p::before {
+                        content: "✦";
+                        position: absolute;
+                        left: 0;
+                        color: #6b6b7a;
+                        font-size: 1.2rem;
+                    }
+
+                    #box2 .box-text p:first-child {
+                        margin-top: 0;
+                    }
+
+                    #box2 .box-text p:last-child {
+                        margin-bottom: 0;
+                    }
+
+        /* Контейнер для окошек, чтобы они шли друг за другом */
+        .boxes-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Стиль для подсказки прокрутки */
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 1rem;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Адаптация для маленьких экранов */
+        @media (max-width: 550px) {
+            .box-text {
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            .box-wrapper {
+                padding: 0.6rem 1.2rem;
+            }
+
+            .fio {
+                margin-bottom: 1.2rem;
+            }
+
+            .boxes-container {
+                gap: 1rem;
+            }
+        }
+
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="photo-wrapper">
+            <img src="sis.jpg" alt="Вероника Николаевна Ковальчук" class="photo">
+        </div>
+        <div class="fio">Вероника Николаевна Ковальчук</div>
+
+        <!-- Контейнер для всех окошек -->
+        <div class="boxes-container">
+            <!-- Первое окошко -->
+            <div class="box-wrapper" id="box1">
+                <div class="box-text">Ваш лучший выбор репетитора</div>
+            </div>
+
+            <!-- Второе окошко (с задержкой) -->
+            <div class="box-wrapper delay" id="box2">
+                <div class="box-text">
+                    <p>Магистр педагогических наук, преподаватель русского языка, филолог.</p>
+                    <p>Окончила с красным дипломом филологический факультет КГУ</p>
+                    <p>Эксперт ЕГЭ</p>
+                    <p>Филолог, преподаватель русского языка и литературы</p>
+                    <p>9 лет готовлю к ОГЭ и ЕГЭ</p>
+                    <p>Выпустила более 500 учеников, каждый из которых успешно справился с экзаменами</p>
+                    <p>Создаю методические материалы по написанию сочинения</p>
+                    <p>Постоянно повышаю квалификацию, обучаюсь у экспертов и разработчиков ЕГЭ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подсказка прокрутки -->
+    <div class="scroll-hint">↓ Прокрутите вниз ↓</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const boxes = document.querySelectorAll('.box-wrapper');
+            let firstBoxShown = false;
+            const scrollHint = document.querySelector('.scroll-hint');
+
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                return rect.top <= windowHeight * 0.85 && rect.bottom >= 0;
+            }
+
+            function handleScroll() {
+                let anyBoxVisible = false;
+
+                boxes.forEach((box, index) => {
+                    if (isElementInViewport(box)) {
+                        // Добавляем класс show, если элемент виден
+                        box.classList.add('show');
+                        anyBoxVisible = true;
+                    }
+                    // Раскомментируйте, если хотите, чтобы элементы скрывались при уходе из зоны видимости
+                    // else {
+                    //     box.classList.remove('show');
+                    // }
+                });
+
+                // Скрываем подсказку, когда появилось первое окошко
+                if (anyBoxVisible && !firstBoxShown) {
+                    firstBoxShown = true;
+                    if (scrollHint) {
+                        scrollHint.style.opacity = '0';
+                        scrollHint.style.transition = 'opacity 0.5s ease';
+                        setTimeout(() => {
+                            scrollHint.style.display = 'none';
+                        }, 500);
+                    }
+                }
+            }
+
+            // Проверяем при загрузке
+            setTimeout(handleScroll, 200);
+
+            // Проверяем при прокрутке
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleScroll);
+        });
+    </script>
+</body>
+</html>
