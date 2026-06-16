@@ -15,9 +15,9 @@
 
         body {
             background-color: #FFE8F5;
-            min-height: 250vh; /* увеличиваем высоту, чтобы было место для скролла */
+            min-height: 250vh;
             display: flex;
-            align-items: flex-start; /* меняем на flex-start, чтобы контент был сверху */
+            align-items: flex-start; 
             justify-content: center;
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             padding: 4rem 2rem 6rem;
@@ -33,7 +33,7 @@
             margin-top: 2rem;
         }
 
-        /* ФИО — всегда видимо */
+       
         .fio {
             font-size: clamp(1.6rem, 7vw, 3.4rem);
             font-weight: 800;
@@ -61,16 +61,100 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-            .photo:hover {
-                transform: scale(1.05);
-                box-shadow: 0 6px 30px rgba(45, 27, 78, 0.3);
+        .photo:hover {
+             transform: scale(1.05);
+             box-shadow: 0 6px 30px rgba(45, 27, 78, 0.3);
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            background: linear-gradient(135deg, #2d1b4e, #4a2c6b);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 10px 40px rgba(45, 27, 78, 0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            animation: slideUp 0.5s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(100px);
+                opacity: 0;
             }
+
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-consent.hidden {
+            display: none;
+        }
+
+        .cookie-consent-text {
+            color: #ffffff;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .cookie-consent-text strong {
+            color: #b8e0d9;
+         }
+
+        .cookie-consent-button {
+            background: #b8e0d9;
+            color: #2d1b4e;
+            border: none;
+            border-radius: 50px;
+            padding: 0.7rem 2rem;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 120px;
+        }
+
+        .cookie-consent-button:hover {
+             background: #ffffff;
+             transform: scale(1.05);
+             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
 
         /* Для мобильных */
         @media (max-width: 550px) {
             .photo {
                 width: 120px;
                 height: 120px;
+            }
+            .cookie-consent {
+                flex-direction: column;
+                padding: 1.2rem 1.5rem;
+                bottom: 10px;
+                width: 95%;
+                border-radius: 15px;
+            }
+
+            .cookie-consent-button {
+                width: 100%;
+                padding: 0.8rem;
+                min-width: unset;
+            }
+
+            .cookie-consent-text {
+                text-align: center;
             }
         }
 
@@ -90,15 +174,15 @@
         }
 
             /* Когда окошко становится видимым */
-            .box-wrapper.show {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .box-wrapper.show {
+             opacity: 1;
+             transform: translateY(0) scale(1);
+        }
 
             /* Задержка для второго окошка */
-            .box-wrapper.delay {
-                transition-delay: 0.3s; /* появится через 0.3 секунды после первого */
-            }
+        .box-wrapper.delay {
+             transition-delay: 0.3s; /* появится через 0.3 секунды после первого */
+        }
 
         .box-text {
             font-size: clamp(1.2rem, 5vw, 1.9rem);
@@ -109,7 +193,7 @@
             white-space: nowrap;
         }
 
-        /* Стиль для второго окошка - с анимацией при наведении */
+        
         /* Стиль для второго окошка */
         #box2 {
             display: block;
@@ -121,42 +205,42 @@
             border-radius: 40px;
         }
 
-            #box2:hover {
-                background-color: rgba(184, 224, 217, 0.3);
-                transform: scale(1.01);
-                box-shadow: 0 4px 20px rgba(184, 224, 217, 0.4);
-            }
+        #box2:hover {
+             background-color: rgba(184, 224, 217, 0.3);
+             transform: scale(1.01);
+             box-shadow: 0 4px 20px rgba(184, 224, 217, 0.4);
+        }
 
-            #box2 .box-text {
-                color: #6b6b7a;
-                white-space: normal;
-                word-wrap: break-word;
-                text-align: left;
-                line-height: 1.8;
-                font-size: clamp(1rem, 2.5vw, 1.4rem);
-            }
+        #box2 .box-text {
+              color: #6b6b7a;
+              white-space: normal;
+              word-wrap: break-word;
+              text-align: left;
+              line-height: 1.8;
+              font-size: clamp(1rem, 2.5vw, 1.4rem);
+        }
 
-                #box2 .box-text p {
-                    margin: 0.6rem 0;
-                    padding-left: 25px;
-                    position: relative;
-                }
+        #box2 .box-text p {
+              margin: 0.6rem 0;
+              padding-left: 25px;
+              position: relative;
+        }
 
-                    #box2 .box-text p::before {
-                        content: "✦";
-                        position: absolute;
-                        left: 0;
-                        color: #6b6b7a;
-                        font-size: 1.2rem;
-                    }
+        #box2 .box-text p::before {
+              content: "✦";
+              position: absolute;
+              left: 0;
+              color: #6b6b7a;
+              font-size: 1.2rem;
+        }
 
-                    #box2 .box-text p:first-child {
-                        margin-top: 0;
-                    }
+        #box2 .box-text p:first-child {
+              margin-top: 0;
+        }
 
-                    #box2 .box-text p:last-child {
-                        margin-bottom: 0;
-                    }
+        #box2 .box-text p:last-child {
+              margin-bottom: 0;
+        }
 
         /* Контейнер для окошек, чтобы они шли друг за другом */
         .boxes-container {
@@ -249,6 +333,16 @@
     <!-- Подсказка прокрутки -->
     <div class="scroll-hint">↓ Прокрутите вниз ↓</div>
 
+    <!-- Окошко с предупреждением о персональных данных -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-consent-text">
+            <strong>🔒 Обработка персональных данных</strong><br>
+            Нажимая «Принимаю», вы даёте согласие на обработку персональных данных
+            в соответствии с <a href="#" style="color: #b8e0d9; text-decoration: underline;">политикой конфиденциальности</a>.
+        </div>
+        <button class="cookie-consent-button" id="acceptCookies">Принимаю</button>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const boxes = document.querySelectorAll('.box-wrapper');
@@ -266,14 +360,11 @@
 
                 boxes.forEach((box, index) => {
                     if (isElementInViewport(box)) {
-                        // Добавляем класс show, если элемент виден
+
                         box.classList.add('show');
                         anyBoxVisible = true;
                     }
-                    // Раскомментируйте, если хотите, чтобы элементы скрывались при уходе из зоны видимости
-                    // else {
-                    //     box.classList.remove('show');
-                    // }
+
                 });
 
                 // Скрываем подсказку, когда появилось первое окошко
@@ -289,13 +380,30 @@
                 }
             }
 
-            // Проверяем при загрузке
+
             setTimeout(handleScroll, 200);
 
-            // Проверяем при прокрутке
+
             window.addEventListener('scroll', handleScroll);
             window.addEventListener('resize', handleScroll);
+
+            // Обработка окошка с предупреждением
+            const cookieConsent = document.getElementById('cookieConsent');
+            const acceptBtn = document.getElementById('acceptCookies');
+
+            // Проверяем, не соглашался ли пользователь раньше
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                cookieConsent.classList.add('hidden');
+            }
+
+            // При нажатии на кнопку
+            acceptBtn.addEventListener('click', function () {
+                cookieConsent.classList.add('hidden');
+                localStorage.setItem('cookiesAccepted', 'true');
+            });
         });
     </script>
+
+
 </body>
 </html>
