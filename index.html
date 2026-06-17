@@ -700,6 +700,100 @@
             text-align: center;
         }
 
+        .photo-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .leaves-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; 
+            overflow: hidden;
+            border-radius: 30%;
+        }
+
+        .leaf {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.6;
+            animation: fall linear infinite;
+            user-select: none;
+        }
+
+            /* Каждый лист — разная позиция, скорость и задержка */
+            .leaf:nth-child(1) {
+                left: 10%;
+                animation-duration: 8s;
+                animation-delay: 0s;
+            }
+
+            .leaf:nth-child(2) {
+                left: 25%;
+                animation-duration: 10s;
+                animation-delay: 1s;
+            }
+
+            .leaf:nth-child(3) {
+                left: 40%;
+                animation-duration: 7s;
+                animation-delay: 2s;
+            }
+
+            .leaf:nth-child(4) {
+                left: 55%;
+                animation-duration: 12s;
+                animation-delay: 0.5s;
+            }
+
+            .leaf:nth-child(5) {
+                left: 70%;
+                animation-duration: 9s;
+                animation-delay: 3s;
+            }
+
+            .leaf:nth-child(6) {
+                left: 85%;
+                animation-duration: 11s;
+                animation-delay: 1.5s;
+            }
+
+            .leaf:nth-child(7) {
+                left: 15%;
+                animation-duration: 13s;
+                animation-delay: 4s;
+            }
+
+            .leaf:nth-child(8) {
+                left: 65%;
+                animation-duration: 8s;
+                animation-delay: 2.5s;
+            }
+
+        /* Анимация падения */
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(0.8);
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 0.9;
+                transform: translateY(50px) rotate(180deg) scale(1.1);
+            }
+
+            100% {
+                transform: translateY(120px) rotate(360deg) scale(0.9);
+                opacity: 0.3;
+            }
+        }
+
 
 
         /* Адаптация для маленьких экранов */
@@ -759,10 +853,39 @@
         <img src="books.jpg" alt="Передний план" class="parallax-layer parallax-layer-front" id="layerFront">-->
     </div>
 
+
+    <div class="leaves-container">
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+        <div class="leaf">🍂</div>
+        <div class="leaf">🍁</div>
+    </div> 
+
     <div class="photo-wrapper">
+
         <img src="sis.jpg" alt="Вероника Николаевна Ковальчук" class="photo">
     </div>
-    
+
 
     <div class="hero">
 
@@ -815,7 +938,7 @@
                     <p>Окончила с красным дипломом филологический факультет КГУ</p>
                     <p>Эксперт ЕГЭ</p>
                     <p>9 лет готовлю к ОГЭ и ЕГЭ</p>
-                    <p>Выпустила более 500 учеников, каждый из которых успешно справился с экзаменами</p>
+                    <p>Выпустила более 750 учеников, каждый из которых успешно справился с экзаменами</p>
                     <p>Создаю методические материалы по написанию сочинения</p>
                     <p>Постоянно повышаю квалификацию, обучаюсь у экспертов и разработчиков ЕГЭ</p>
                 </div>
@@ -855,18 +978,6 @@
                 <p>Успешная сдача экзамена с гарантией результата</p>
                 <span class="price"> 1000 ₽/час</span>
             </div>
-            <!--<div class="service-card">
-        <div class="service-icon">✍️</div>
-        <h3>Помощь с сочинениями</h3>
-        <p>Научу писать сочинения на высокий балл</p>
-        <span class="price">от 1000 ₽/час</span>
-    </div>
-    <div class="service-card">
-        <div class="service-icon">🎯</div>
-        <h3>Индивидуальные занятия</h3>
-        <p>Программа под ваш уровень и цели</p>
-        <span class="price">от 1200 ₽/час</span>
-    </div>-->
         </div>
     </div>
 
@@ -879,7 +990,7 @@
         <div class="certificates-grid">
             <img src="diplm.jpg" alt="Диплом КГУ" class="certificate-img">
             <img src="certf.jpg" alt="Сертификат эксперта ЕГЭ" class="certificate-img">
-            
+
         </div>
     </div>
 
@@ -931,6 +1042,7 @@
             <a href="https://t.me/verynik" class="social-link">📱 Telegram</a>
             <a href="https://www.tiktok.com/@veryynik" class="social-link">📸 TikTok</a>
             <a href="https://vk.com/id552450811" class="social-link">📘 VK</a>
+            <a href="https://www.avito.ru/brands/d71690886cdfa25b5f9ded476d5f5b40?src=sharing" class="social-link">💼 Авито</a>
         </div>
     </div>
 
@@ -959,16 +1071,16 @@
         <h2 class="section-title">Свяжитесь со мной</h2>
         <div class="contacts-content">
             <div class="contact-info">
-                <p>📞 <a href="tel:+79950846377">+7 (995) 124-63-77</a></p>
 
-                <p>📱 <a href="https://t.me/verynik">Telegram</a> | <a href="https://vk.com/id552450811">VK</a></p>
+
+                <p>📱 <a href="https://t.me/verynik">Telegram</a> | <a href="https://vk.com/id552450811">VK</a> | <a href="https://www.avito.ru/brands/d71690886cdfa25b5f9ded476d5f5b40?src=sharing">Авито</a></p>
             </div>
             <!--<div class="contact-form">
-        <input type="text" placeholder="Ваше имя" class="form-input">
-        <input type="email" placeholder="Email" class="form-input">
-        <textarea placeholder="Ваше сообщение" class="form-input" rows="4"></textarea>
-        <button class="form-button">Отправить</button>
-    </div>-->
+                <input type="text" placeholder="Ваше имя" class="form-input">
+                <input type="email" placeholder="Email" class="form-input">
+                <textarea placeholder="Ваше сообщение" class="form-input" rows="4"></textarea>
+                <button class="form-button">Отправить</button>
+            </div>-->
         </div>
     </div>
 
