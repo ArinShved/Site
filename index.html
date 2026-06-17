@@ -76,6 +76,7 @@
         .photo-wrapper {
             margin-bottom: 1rem;
             margin-top: 2rem;
+            justify-content: center;
         }
 
         .photo {
@@ -316,6 +317,7 @@
             text-align: center;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            margin-bottom: 2rem;
         }
 
         .service-card:hover {
@@ -350,6 +352,7 @@
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.95rem;
+            
         }
 
         .about-section {
@@ -431,11 +434,12 @@
 
         .contact-info {
             text-align: left;
+            
             font-size: 1.1rem;
         }
 
         .contact-info p {
-            margin: 1rem 0;
+           padding: 0.8rem;
         }
 
        .contact-info a {
@@ -490,6 +494,7 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
             margin-top: 1.5rem;
+            
         }
 
         .certificate-img {
@@ -500,11 +505,14 @@
             border: 3px solid #fff;
             box-shadow: 0 4px 15px rgba(45, 27, 78, 0.15);
             transition: all 0.3s ease;
+           
+            
         }
 
         .certificate-img:hover {
-             transform: scale(2.4);
+             transform: scale(1.8);
              box-shadow: 0 8px 30px rgba(45, 27, 78, 0.3);
+
         }
 
         .social-links {
@@ -581,7 +589,7 @@
             display: flex;
             gap: 1rem;
             width: max-content;
-            animation: scroll-slider 20s linear infinite;
+            animation: scroll-slider 30s linear infinite;
             padding: 0.5rem 0;
             will-change: transform; /* Оптимизация для анимации */
         }
@@ -627,7 +635,7 @@
 
         .parallax-layers {
             position: relative;
-            width: 120%;
+            width: 100%;
             /*max-width: 800px;*/
             height: 0vh;
             
@@ -643,7 +651,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 120%;
+            height: 100%;
             object-fit: cover;
             will-change: transform;
         }
@@ -683,11 +691,11 @@
 
         .parallax-content {
             position: absolute;
-            top: 30%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
-            width: 90%;
+            width: 100%;
             max-width: 800px;
             text-align: center;
         }
@@ -723,6 +731,13 @@
             .slide-item {
                 width: 150px;
                 height: 110px;
+            }
+
+            .certificates-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.8rem;
+                padding: 0 0.5rem;
             }
         }
 
@@ -764,7 +779,7 @@
             <h2 class="section-title">Обо мне</h2>
             <div class="about-content">
                 <p>Здравствуйте! Меня зовут Вероника Николаевна.</p>
-                <p>Я — магистр педагогических наук, филолог, преподаватель русского языка и литературы.</p>
+                <p>Я магистр педагогических наук, филолог, преподаватель русского языка и литературы.</p>
                 <p>Моя миссия — помочь каждому ученику раскрыть свой потенциал и полюбить русский язык.</p>
             </div>
         </div>
@@ -774,7 +789,7 @@
             <!-- Первое окошко -->
             <div class="stats-section">
                 <div class="stat-item">
-                    <div class="stat-number">500+</div>
+                    <div class="stat-number">750+</div>
                     <div class="stat-label">Учеников</div>
                 </div>
                 <div class="stat-item">
@@ -830,28 +845,28 @@
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">📚</div>
-                <h3>Подготовка к ЕГЭ</h3>
+                <h3>Индивидуально</h3>
                 <p>Интенсивная подготовка к экзамену с высокими результатами</p>
-                <span class="price">от 1500 ₽/час</span>
+                <span class="price">2000 ₽/час</span>
             </div>
             <div class="service-card">
                 <div class="service-icon">📝</div>
-                <h3>Подготовка к ОГЭ</h3>
+                <h3>Группа</h3>
                 <p>Успешная сдача экзамена с гарантией результата</p>
-                <span class="price">от 1300 ₽/час</span>
+                <span class="price"> 1000 ₽/час</span>
             </div>
-            <div class="service-card">
-                <div class="service-icon">✍️</div>
-                <h3>Помощь с сочинениями</h3>
-                <p>Научу писать сочинения на высокий балл</p>
-                <span class="price">от 1000 ₽/час</span>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>Индивидуальные занятия</h3>
-                <p>Программа под ваш уровень и цели</p>
-                <span class="price">от 1200 ₽/час</span>
-            </div>
+            <!--<div class="service-card">
+        <div class="service-icon">✍️</div>
+        <h3>Помощь с сочинениями</h3>
+        <p>Научу писать сочинения на высокий балл</p>
+        <span class="price">от 1000 ₽/час</span>
+    </div>
+    <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Индивидуальные занятия</h3>
+        <p>Программа под ваш уровень и цели</p>
+        <span class="price">от 1200 ₽/час</span>
+    </div>-->
         </div>
     </div>
 
@@ -862,31 +877,48 @@
     <div class="certificates-section" id="certificates">
         <h2 class="section-title">📜 Дипломы и сертификаты</h2>
         <div class="certificates-grid">
-            <img src="diplom1.jpg" alt="Диплом КГУ" class="certificate-img">
+            <img src="diplm.jpg" alt="Диплом КГУ" class="certificate-img">
             <img src="certf.jpg" alt="Сертификат эксперта ЕГЭ" class="certificate-img">
-            <img src="diplom3.jpg" alt="Курсы повышения квалификации" class="certificate-img">
+            
         </div>
     </div>
 
     <div class="slider-section" id="gallery">
-        <h2 class="section-title">📸 Моменты с занятий</h2>
+        <h2 class="section-title"></h2>
         <div class="slider-track">
             <!-- Первая копия слайдов -->
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 1"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 2"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 3"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 4"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 5"></div>
+            <div class="slide-item"><img src="1.jpg" alt="Описание фото 1"></div>
+            <div class="slide-item"><img src="2.jpg" alt="Описание фото 2"></div>
+            <div class="slide-item"><img src="3.jpg" alt="Описание фото 3"></div>
+            <div class="slide-item"><img src="4.jpg" alt="Описание фото 4"></div>
+            <div class="slide-item"><img src="5.jpg" alt="Описание фото 5"></div>
+            <div class="slide-item"><img src="6.jpg" alt="Описание фото 6"></div>
+            <div class="slide-item"><img src="7.jpg" alt="Описание фото 7"></div>
+            <div class="slide-item"><img src="8.jpg" alt="Описание фото 8"></div>
+            <div class="slide-item"><img src="9.jpg" alt="Описание фото 9"></div>
+            <div class="slide-item"><img src="10.jpg" alt="Описание фото 10"></div>
+            <div class="slide-item"><img src="11.jpg" alt="Описание фото 11"></div>
+            <div class="slide-item"><img src="12.jpg" alt="Описание фото 12"></div>
 
             <!-- Вторая копия слайдов (для бесконечности) -->
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 1"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 2"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 3"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 4"></div>
-            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 5"></div>
+            <div class="slide-item"><img src="1.jpg" alt="Описание фото 1"></div>
+            <div class="slide-item"><img src="2.jpg" alt="Описание фото 2"></div>
+            <div class="slide-item"><img src="3.jpg" alt="Описание фото 3"></div>
+            <div class="slide-item"><img src="4.jpg" alt="Описание фото 4"></div>
+            <div class="slide-item"><img src="5.jpg" alt="Описание фото 5"></div>
+            <div class="slide-item"><img src="6.jpg" alt="Описание фото 6"></div>
+            <div class="slide-item"><img src="7.jpg" alt="Описание фото 7"></div>
+            <div class="slide-item"><img src="8.jpg" alt="Описание фото 8"></div>
+            <div class="slide-item"><img src="9.jpg" alt="Описание фото 9"></div>
+            <div class="slide-item"><img src="10.jpg" alt="Описание фото 10"></div>
+            <div class="slide-item"><img src="11.jpg" alt="Описание фото 11"></div>
+            <div class="slide-item"><img src="12.jpg" alt="Описание фото 12"></div>
+
         </div>
 
     </div>
+
+
 
 
 
@@ -927,16 +959,16 @@
         <h2 class="section-title">Свяжитесь со мной</h2>
         <div class="contacts-content">
             <div class="contact-info">
-                <p>📞 <a href="tel:+79123456789">+7 (912) 345-67-89</a></p>
-                <p>✉️ <a href="mailto:veronika@mail.ru">veronika@mail.ru</a></p>
+                <p>📞 <a href="tel:+79950846377">+7 (995) 124-63-77</a></p>
+
                 <p>📱 <a href="https://t.me/verynik">Telegram</a> | <a href="https://vk.com/id552450811">VK</a></p>
             </div>
-            <div class="contact-form">
-                <input type="text" placeholder="Ваше имя" class="form-input">
-                <input type="email" placeholder="Email" class="form-input">
-                <textarea placeholder="Ваше сообщение" class="form-input" rows="4"></textarea>
-                <button class="form-button">Отправить</button>
-            </div>
+            <!--<div class="contact-form">
+        <input type="text" placeholder="Ваше имя" class="form-input">
+        <input type="email" placeholder="Email" class="form-input">
+        <textarea placeholder="Ваше сообщение" class="form-input" rows="4"></textarea>
+        <button class="form-button">Отправить</button>
+    </div>-->
         </div>
     </div>
 
