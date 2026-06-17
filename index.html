@@ -21,7 +21,7 @@
             align-items: center;
             justify-content: flex-start;
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-            padding: 4rem 2rem 6rem;
+            padding: 0;/*4rem 2rem 6rem;*/
             overflow-x: hidden;
         }
 
@@ -74,12 +74,13 @@
 
         /* Стиль для фото */
         .photo-wrapper {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
         }
 
         .photo {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             border-radius: 60%; /* делает круглым */
             object-fit: cover; /* красиво обрезает фото */
             border: 4px solid #ffffff;
@@ -484,6 +485,213 @@
             transform: scale(1.02);
         }
 
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #fff;
+            box-shadow: 0 4px 15px rgba(45, 27, 78, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .certificate-img:hover {
+             transform: scale(2.4);
+             box-shadow: 0 8px 30px rgba(45, 27, 78, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            color: #2d1b4e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .social-link:hover {
+             border-color: #b8e0d9;
+             transform: translateY(-3px);
+             box-shadow: 0 4px 20px rgba(184, 224, 217, 0.3);
+            }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: #2d1b4e;
+        }
+
+        .stat-label {
+            color: #6b5a7a;
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+        }
+
+        .slider-section {
+            margin: 2rem 0;
+            padding: 1.5rem 0 15rem 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            overflow: hidden; /* Скрывает все, что выходит за границы */
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .slider-section .section-title {
+             color: #2d1b4e;
+             font-size: clamp(1.5rem, 4vw, 2.2rem);
+             text-align: center;
+             margin-bottom: 1rem;
+             padding: 0 1rem;
+        }
+
+        /* Контейнер для ленты, который будет сдвигаться */
+        .slider-track {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            animation: scroll-slider 20s linear infinite;
+            padding: 0.5rem 0;
+            will-change: transform; /* Оптимизация для анимации */
+        }
+
+        /* Ключевые кадры для анимации движения */
+        @keyframes scroll-slider {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Настройка каждой карточки с фото */
+        .slide-item {
+            flex-shrink: 0;
+            width: 200px;
+            height: 150px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(45, 27, 78, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .slide-item img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; /* Это гарантирует, что фото красиво заполнит карточку */
+              display: block;
+        }
+
+        .slide-item:hover {
+              transform: scale(1.05);
+              z-index: 10;
+              box-shadow: 0 6px 25px rgba(45, 27, 78, 0.2);
+        }
+
+        .parallax-layers {
+            position: relative;
+            width: 120%;
+            /*max-width: 800px;*/
+            height: 0vh;
+            
+            margin:  0;
+            padding: 10rem 0 9rem 0;
+            /*margin: 0 auto 2rem;*/
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            object-fit: cover;
+            will-change: transform;
+        }
+
+        /* Слой 1: задний план (двигается медленнее) */
+        .parallax-layer-back {
+            transform: translateY(0);
+            filter: blur(2px) brightness(0.7);
+            z-index: 0;
+        }
+
+        /* Слой 2: основное фото */
+        .parallax-layer-main {
+            z-index: 1;
+            height: 110%;
+        }
+
+        /* Слой 3: передний план (двигается быстрее) */
+        .parallax-layer-front {
+            z-index: 2;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        /* Затемнение */
+        .parallax-layers::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 45%;
+            background: linear-gradient(to top, #FFE8F5, transparent);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .parallax-content {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+
 
 
         /* Адаптация для маленьких экранов */
@@ -507,6 +715,15 @@
             .contacts-content {
                 grid-template-columns: 1fr;
             }
+
+            .stats-section {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .slide-item {
+                width: 150px;
+                height: 110px;
+            }
         }
 
         html, body {
@@ -515,10 +732,25 @@
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="photo-wrapper">
-            <img src="sis.jpg" alt="Вероника Николаевна Ковальчук" class="photo">
+    <div class="parallax-layers" id="layersContainer">
+        <img src="books.jpg" alt="Задний план" class="parallax-layer parallax-layer-back" id="layerBack">
+
+        <div class="parallax-content">
+            <div class="box-wrapper" id="box1">
+                <div class="box-text">Ваш лучший выбор репетитора</div>
+            </div>
         </div>
+        <!--<img src="books2.jpg" alt="Основное фото" class="parallax-layer parallax-layer-main" id="layerMain">
+        <img src="books.jpg" alt="Передний план" class="parallax-layer parallax-layer-front" id="layerFront">-->
+    </div>
+
+    <div class="photo-wrapper">
+        <img src="sis.jpg" alt="Вероника Николаевна Ковальчук" class="photo">
+    </div>
+    
+
+    <div class="hero">
+
         <div class="fio">Вероника Николаевна Ковальчук</div>
 
         <nav class="menu">
@@ -540,9 +772,26 @@
         <!-- Контейнер для всех окошек -->
         <div class="boxes-container">
             <!-- Первое окошко -->
-            <div class="box-wrapper" id="box1">
-                <div class="box-text">Ваш лучший выбор репетитора</div>
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Учеников</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">9 лет</div>
+                    <div class="stat-label">Опыта</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Успешных результатов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Отзывов</div>
+                </div>
             </div>
+
+
 
             <!-- Второе окошко (с задержкой) -->
             <div class="box-wrapper delay" id="box2">
@@ -556,6 +805,10 @@
                     <p>Постоянно повышаю квалификацию, обучаюсь у экспертов и разработчиков ЕГЭ</p>
                 </div>
             </div>
+
+
+
+
         </div>
     </div>
 
@@ -602,6 +855,53 @@
         </div>
     </div>
 
+
+
+
+
+    <div class="certificates-section" id="certificates">
+        <h2 class="section-title">📜 Дипломы и сертификаты</h2>
+        <div class="certificates-grid">
+            <img src="diplom1.jpg" alt="Диплом КГУ" class="certificate-img">
+            <img src="certf.jpg" alt="Сертификат эксперта ЕГЭ" class="certificate-img">
+            <img src="diplom3.jpg" alt="Курсы повышения квалификации" class="certificate-img">
+        </div>
+    </div>
+
+    <div class="slider-section" id="gallery">
+        <h2 class="section-title">📸 Моменты с занятий</h2>
+        <div class="slider-track">
+            <!-- Первая копия слайдов -->
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 1"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 2"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 3"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 4"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 5"></div>
+
+            <!-- Вторая копия слайдов (для бесконечности) -->
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 1"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 2"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 3"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 4"></div>
+            <div class="slide-item"><img src="sis.jpg" alt="Описание фото 5"></div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="social-section">
+        <h2 class="section-title">🌐 Я в соцсетях</h2>
+        <div class="social-links">
+            <a href="https://t.me/verynik" class="social-link">📱 Telegram</a>
+            <a href="https://www.tiktok.com/@veryynik" class="social-link">📸 TikTok</a>
+            <a href="https://vk.com/id552450811" class="social-link">📘 VK</a>
+        </div>
+    </div>
+
     <div class="reviews-section" id="reviews">
         <h2 class="section-title">Отзывы учеников</h2>
         <div class="reviews-grid">
@@ -629,7 +929,7 @@
             <div class="contact-info">
                 <p>📞 <a href="tel:+79123456789">+7 (912) 345-67-89</a></p>
                 <p>✉️ <a href="mailto:veronika@mail.ru">veronika@mail.ru</a></p>
-                <p>📱 <a href="#">Telegram</a> | <a href="#">WhatsApp</a></p>
+                <p>📱 <a href="https://t.me/verynik">Telegram</a> | <a href="https://vk.com/id552450811">VK</a></p>
             </div>
             <div class="contact-form">
                 <input type="text" placeholder="Ваше имя" class="form-input">
@@ -697,6 +997,29 @@
             acceptBtn.addEventListener('click', function () {
                 cookieConsent.classList.add('hidden');
                 localStorage.setItem('cookiesAccepted', 'true');
+            });
+
+
+            const layersContainer = document.getElementById('layersContainer');
+            const layerBack = document.getElementById('layerBack');
+            const layerMain = document.getElementById('layerMain');
+            const layerFront = document.getElementById('layerFront');
+
+            window.addEventListener('scroll', function () {
+                if (!layersContainer) return;
+
+                const rect = layersContainer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                    const offset = (scrollProgress - 0.5) * 80;
+
+                    // Разная скорость для каждого слоя
+                    layerBack.style.transform = `translateY(${offset * 0.3}px)`;
+                    layerMain.style.transform = `translateY(${offset * 0.5}px)`;
+                    layerFront.style.transform = `translateY(${offset * 0.8}px)`;
+                }
             });
         });
     </script>
