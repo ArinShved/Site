@@ -728,53 +728,53 @@
         }
 
             /* Каждый лист — разная позиция, скорость и задержка */
-            .leaf:nth-child(1) {
-                left: 10%;
-                animation-duration: 8s;
-                animation-delay: 0s;
-            }
+        .leaf:nth-child(1) {
+             left: 10%;
+             animation-duration: 8s;
+             animation-delay: 0s;
+        }
 
-            .leaf:nth-child(2) {
-                left: 25%;
-                animation-duration: 10s;
-                animation-delay: 1s;
-            }
+        .leaf:nth-child(2) {
+             left: 25%;
+             animation-duration: 10s;
+             animation-delay: 1s;
+        }
 
-            .leaf:nth-child(3) {
-                left: 40%;
-                animation-duration: 7s;
-                animation-delay: 2s;
-            }
+        .leaf:nth-child(3) {
+            left: 40%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
 
-            .leaf:nth-child(4) {
-                left: 55%;
-                animation-duration: 12s;
-                animation-delay: 0.5s;
-            }
+        .leaf:nth-child(4) {
+            left: 55%;
+            animation-duration: 12s;
+            animation-delay: 0.5s;
+        }
 
-            .leaf:nth-child(5) {
-                left: 70%;
-                animation-duration: 9s;
-                animation-delay: 3s;
-            }
+        .leaf:nth-child(5) {
+            left: 70%;
+            animation-duration: 9s;
+            animation-delay: 3s;
+        }
 
-            .leaf:nth-child(6) {
-                left: 85%;
-                animation-duration: 11s;
-                animation-delay: 1.5s;
-            }
+        .leaf:nth-child(6) {
+            left: 85%;
+            animation-duration: 11s;
+            animation-delay: 1.5s;
+        }
 
-            .leaf:nth-child(7) {
-                left: 15%;
-                animation-duration: 13s;
-                animation-delay: 4s;
-            }
+        .leaf:nth-child(7) {
+            left: 15%;
+            animation-duration: 13s;
+            animation-delay: 4s;
+        }
 
-            .leaf:nth-child(8) {
-                left: 65%;
-                animation-duration: 8s;
-                animation-delay: 2.5s;
-            }
+        .leaf:nth-child(8) {
+            left: 65%;
+            animation-duration: 8s;
+            animation-delay: 2.5s;
+        }
 
         /* Анимация падения */
         @keyframes fall {
@@ -794,6 +794,179 @@
             }
         }
 
+        /* Карусель отзывов с фото */
+        .reviews-carousel-section {
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 1rem 1rem 27rem 1rem;
+            margin: 2rem 0;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            margin: 1.5rem 0;
+            max-width: 800px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
+        }
+
+        .photo-card {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(45, 27, 78, 0.15);
+            transition: all 0.3s ease;
+            border: 3px solid #ffffff;
+            flex-shrink: 0;
+            cursor: pointer;
+            
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(45, 27, 78, 0.3);
+            border-color: #b8e0d9;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        /* Кнопки навигации */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(45, 27, 78, 0.8);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 27, 78, 0.2);
+        }
+
+        .carousel-btn:hover {
+             background: #2d1b4e;
+             transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+             left: 10px;
+        }
+
+        .carousel-btn.next {
+             right: 10px;
+        }
+
+        /* Точки-индикаторы */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(45, 27, 78, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #2d1b4e;
+            transform: scale(1.2);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            cursor: pointer;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-overlay img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 10px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+            cursor: default;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Крестик закрытия */
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 10000;
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
 
 
         /* Адаптация для маленьких экранов */
@@ -833,6 +1006,42 @@
                 gap: 0.8rem;
                 padding: 0 0.5rem;
             }
+
+            .carousel-slide {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .photo-card {
+                width: 140px;
+                height: 140px;
+            }
+
+
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .carousel-btn.prev {
+                left: 5px;
+            }
+
+            .carousel-btn.next {
+                right: 5px;
+            }
+
+            .modal-overlay {
+                padding: 1rem;
+            }
+
+            .modal-close {
+                font-size: 2.5rem;
+                top: 10px;
+                right: 15px;
+            }
+            
         }
 
         html, body {
@@ -879,7 +1088,7 @@
         <div class="leaf">🍁</div>
         <div class="leaf">🍂</div>
         <div class="leaf">🍁</div>
-    </div> 
+    </div>
 
     <div class="photo-wrapper">
 
@@ -1067,6 +1276,62 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="photoModal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img src="" alt="Фото" id="modalImage">
+    </div>
+
+    <div class="reviews-carousel-section" id="reviews-photo">
+        <h2 class="section-title">📸 Отзывы с фото</h2>
+
+        <div class="carousel-container">
+            <button class="carousel-btn prev" id="prevBtn">‹</button>
+            <button class="carousel-btn next" id="nextBtn">›</button>
+
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Слайд 1 -->
+                <div class="carousel-slide">
+                    <div class="photo-card">
+                        <img src="o1.jpg" alt="Фото 1">
+                    </div>
+                    <div class="photo-card">
+                        <img src="o2.jpg" alt="Фото 2">
+                    </div>
+
+                </div>
+
+                <!-- Слайд 2 -->
+                <div class="carousel-slide">
+                    <div class="photo-card">
+                        <img src="o3.jpg" alt="Фото 4">
+                    </div>
+                    <div class="photo-card">
+                        <img src="o4.jpg" alt="Фото 5">
+                    </div>
+
+                </div>
+
+                <!-- Слайд 3 -->
+                <div class="carousel-slide">
+                    <div class="photo-card">
+                        <img src="o5.jpg" alt="Фото 7">
+                    </div>
+                    <div class="photo-card">
+                        <img src="o6.jpg" alt="Фото 8">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" data-index="0"></button>
+            <button class="carousel-dot" data-index="1"></button>
+            <button class="carousel-dot" data-index="2"></button>
+        </div>
+    </div>
+
+
     <div class="contacts-section" id="contacts">
         <h2 class="section-title">Свяжитесь со мной</h2>
         <div class="contacts-content">
@@ -1165,6 +1430,112 @@
                     layerFront.style.transform = `translateY(${offset * 0.8}px)`;
                 }
             });
+
+            // Карусель отзывов с фото
+            const track = document.getElementById('carouselTrack');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateCarousel(index) {
+                // Проверяем границы
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+
+                // Сдвигаем трек
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                // Обновляем точки
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            // Кнопки
+            prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+            nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+
+            // Точки
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    const index = parseInt(dot.dataset.index);
+                    updateCarousel(index);
+                });
+            });
+
+            // Автоматическая прокрутка (опционально)
+            let autoSlide = setInterval(() => updateCarousel(currentIndex + 1), 6000);
+
+            // Останавливаем автопрокрутку при наведении
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(() => updateCarousel(currentIndex + 1), 6000);
+            });
+
+            // Адаптация под свайпы на мобильных (опционально)
+            let startX = 0;
+            let isDragging = false;
+
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+
+            track.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const diff = startX - e.touches[0].clientX;
+                if (diff > 50) {
+                    updateCarousel(currentIndex + 1);
+                    isDragging = false;
+                } else if (diff < -50) {
+                    updateCarousel(currentIndex - 1);
+                    isDragging = false;
+                }
+            });
+
+            track.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            // Модальное окно для фото
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+
+            // Открытие по клику на фото
+            document.querySelectorAll('.photo-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    const img = this.querySelector('img');
+                    if (img) {
+                        modal.classList.add('active');
+                        modalImg.src = img.src;
+                        modalImg.alt = img.alt;
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Закрытие по клику на фон или крестик
+            modal.addEventListener('click', function (e) {
+                if (e.target === this || e.target === modalClose) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Закрытие по ESC
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
         });
     </script>
 
